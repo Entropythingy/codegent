@@ -1,0 +1,23 @@
+llama_base = "http://127.0.0.1:8081"
+models_dir = "~/models"
+llama_server = "~/llama.cpp/build/bin/llama-server"
+
+[models.fast]
+name = "Qwen2.5-3B-Instruct"
+file = "Qwen2.5-3B-Instruct-Q4_K_M.gguf"
+role = "chat"
+flags = "-t 18 -tb 18 -fa -c 4096 -b 512 -ub 128 --parallel 1 --mlock --no-mmap"
+
+[models.analyst]
+name = "DeepSeek-R1-Distill-Qwen-14B"
+file = "DeepSeek-R1-Distill-Qwen-14B-Q4_K_M.gguf"
+role = "analyst"
+flags = "-t 18 -tb 18 -fa -c 4096 -b 512 -ub 128 --parallel 1 --mlock --no-mmap"
+
+[models.coder]
+name = "Qwen2.5-Coder-32B-Instruct"
+file = "Qwen2.5-Coder-32B-Instruct-Q3_K_M.gguf"
+draft = "qwen2.5-coder-0.5b-instruct-q8_0.gguf"
+role = "coder"
+flags = "-t 18 -tb 18 -fa -c 4096 -b 512 -ub 128 --parallel 1 --mlock --no-mmap"
+draft_flags = "-ngld 99 --draft-max 8 --draft-min 4 --draft-p-min 0.75"

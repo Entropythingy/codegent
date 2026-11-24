@@ -1,0 +1,14 @@
+*.gguf
+*.bin
+models/
+sessions.db
+*.log
+*.pid
+history
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.DS_Store
+*.swp
